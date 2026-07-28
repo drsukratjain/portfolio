@@ -227,7 +227,7 @@
     text-transform: uppercase;
   }
 
-  .seal{
+  .seal {
     width: 88px;
     height: 88px;
     border-radius: 50%;
@@ -246,10 +246,17 @@
     position: absolute;
     top: -18px;
     right: -18px;
-    background: var(--paper);
+    
+    /* --- FIXES BELOW --- */
+    background: transparent; /* Removes the solid color block */
+    mix-blend-mode: multiply; /* Makes it blend with the photo like real ink */
+    z-index: 10; /* Ensures it stays stacked above the photo */
+    /* ------------------- */
+    
     opacity: 0.95;
   }
-  .seal::before{
+
+  .seal::before {
     content: "";
     position: absolute;
     inset: 6px;
@@ -257,8 +264,13 @@
     border-radius: 50%;
     opacity: 0.6;
   }
-  .seal b{ display:block; font-size: 0.72rem; margin: 2px 0; letter-spacing: 0.02em; }
 
+  .seal b { 
+    display: block; 
+    font-size: 0.72rem; 
+    margin: 2px 0; 
+    letter-spacing: 0.02em; 
+  }
   /* ---------- vitals ticker (signature element) ---------- */
   .ticker{
     border-top: 1px solid var(--rule);
